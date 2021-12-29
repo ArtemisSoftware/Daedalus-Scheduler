@@ -1,9 +1,6 @@
 package com.artemissoftware.daedalusscheduler.ui.screens.list
 
-import androidx.compose.material.FloatingActionButton
-import androidx.compose.material.Icon
-import androidx.compose.material.MaterialTheme
-import androidx.compose.material.Scaffold
+import androidx.compose.material.*
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Add
 import androidx.compose.runtime.Composable
@@ -16,6 +13,7 @@ import com.artemissoftware.daedalusscheduler.ui.theme.fabBackgroundColor
 import com.artemissoftware.daedalusscheduler.ui.viewmodels.SharedViewModel
 import com.artemissoftware.daedalusscheduler.util.SearchAppBarState
 
+@ExperimentalMaterialApi
 @Composable
 fun ListScreen(
     navigateToTaskScreen: (taskId: Int) -> Unit,
@@ -34,7 +32,9 @@ fun ListScreen(
                 searchTextState = searchTextState
             )
         },
-        content = {},
+        content = {
+                  ListContent(navigateToTaskScreen = navigateToTaskScreen)
+        },
         floatingActionButton = {
             ListFab(onFabClicked = navigateToTaskScreen)
         }
