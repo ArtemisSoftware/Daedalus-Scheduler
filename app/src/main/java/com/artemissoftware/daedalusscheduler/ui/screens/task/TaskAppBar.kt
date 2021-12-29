@@ -22,14 +22,14 @@ fun TaskAppBar(
     selectedTask: ToDoTask?,
     navigateToListScreen: (Action) -> Unit
 ) {
-//    if (selectedTask == null) {
-//        NewTaskAppBar(navigateToListScreen = navigateToListScreen)
-//    } else {
-//        ExistingTaskAppBar(
-//            selectedTask = selectedTask,
-//            navigateToListScreen = navigateToListScreen
-//        )
-//    }
+    if (selectedTask == null) {
+        NewTaskAppBar(navigateToListScreen = navigateToListScreen)
+    } else {
+        ExistingTaskAppBar(
+            selectedTask = selectedTask,
+            navigateToListScreen = navigateToListScreen
+        )
+    }
 
     NewTaskAppBar(navigateToListScreen = navigateToListScreen)
 }
