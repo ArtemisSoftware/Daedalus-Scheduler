@@ -11,6 +11,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import com.artemissoftware.daedalusscheduler.R
+import com.artemissoftware.daedalusscheduler.ui.theme.fabBackgroundColor
 
 @Composable
 fun ListScreen(
@@ -36,7 +37,7 @@ fun ListFab(
         onClick = {
             onFabClicked(-1)
         },
-        //--backgroundColor = MaterialTheme.colors.fabBackgroundColor
+        backgroundColor = MaterialTheme.colors.fabBackgroundColor
     ) {
         Icon(
             imageVector = Icons.Filled.Add,
