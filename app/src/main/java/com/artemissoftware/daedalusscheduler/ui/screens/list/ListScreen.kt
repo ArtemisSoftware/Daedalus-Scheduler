@@ -1,9 +1,12 @@
 package com.artemissoftware.daedalusscheduler.ui.screens.list
 
+import android.util.Log
 import androidx.compose.material.*
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Add
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.stringResource
@@ -20,7 +23,12 @@ fun ListScreen(
     sharedViewModel: SharedViewModel
 ){
 
+    LaunchedEffect(key1 = true){ //trigger once. Only triggers again when key changes
+        Log.d("ListScreen", "LaunchedEffect triggered" )
+        sharedViewModel.getAllTasks()
+    }
 
+    val allTasks = sharedViewModel.allTasks.collectAsState()
     val searchAppBarState: SearchAppBarState by sharedViewModel.searchAppBarState
     val searchTextState: String by sharedViewModel.searchTextState
 
