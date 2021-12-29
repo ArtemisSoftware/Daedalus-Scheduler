@@ -41,7 +41,10 @@ fun ListScreen(
             )
         },
         content = {
-                  ListContent(navigateToTaskScreen = navigateToTaskScreen)
+                  ListContent(
+                      tasks = allTasks.value,
+                      navigateToTaskScreen = navigateToTaskScreen
+                  )
         },
         floatingActionButton = {
             ListFab(onFabClicked = navigateToTaskScreen)

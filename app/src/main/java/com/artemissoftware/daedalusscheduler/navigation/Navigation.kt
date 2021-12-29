@@ -1,5 +1,6 @@
 package com.artemissoftware.daedalusscheduler.navigation
 
+import androidx.compose.material.ExperimentalMaterialApi
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.remember
 import androidx.navigation.NavHostController
@@ -9,6 +10,7 @@ import com.artemissoftware.daedalusscheduler.navigation.destinations.taskComposa
 import com.artemissoftware.daedalusscheduler.ui.viewmodels.SharedViewModel
 import com.artemissoftware.daedalusscheduler.util.Constants.LIST_SCREEN
 
+@ExperimentalMaterialApi
 @Composable
 fun SetupNavigation(
     navController: NavHostController,

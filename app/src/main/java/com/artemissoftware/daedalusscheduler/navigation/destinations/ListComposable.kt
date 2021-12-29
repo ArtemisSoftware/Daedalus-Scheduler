@@ -1,5 +1,6 @@
 package com.artemissoftware.daedalusscheduler.navigation.destinations
 
+import androidx.compose.material.ExperimentalMaterialApi
 import androidx.navigation.NavGraphBuilder
 import androidx.navigation.NavType
 import androidx.navigation.compose.composable
@@ -9,6 +10,7 @@ import com.artemissoftware.daedalusscheduler.ui.viewmodels.SharedViewModel
 import com.artemissoftware.daedalusscheduler.util.Constants.LIST_ARGUMENT_KEY
 import com.artemissoftware.daedalusscheduler.util.Constants.LIST_SCREEN
 
+@ExperimentalMaterialApi
 fun NavGraphBuilder.listComposable(
     navigateToTaskScreen: (Int) -> Unit,
     sharedViewModel: SharedViewModel
