@@ -25,15 +25,42 @@ import com.artemissoftware.daedalusscheduler.ui.theme.LARGE_PADDING
 import com.artemissoftware.daedalusscheduler.ui.theme.TOP_APP_BAR_HEIGHT
 import com.artemissoftware.daedalusscheduler.ui.theme.topAppBarBackgroundColor
 import com.artemissoftware.daedalusscheduler.ui.theme.topAppBarContentColor
+import com.artemissoftware.daedalusscheduler.ui.viewmodels.SharedViewModel
+import com.artemissoftware.daedalusscheduler.util.SearchAppBarState
+import com.artemissoftware.daedalusscheduler.util.TrailingIconState
 
 @Composable
 fun ListAppBar(
+    sharedViewModel: SharedViewModel,
+    searchAppBarState: SearchAppBarState,
+    searchTextState: String
 ){
-    DefaultListAppBar(
-        onSearchClicked = {},
-        onSortClicked = {},
-        onDeleteClicked = {}
-    )
+    when (searchAppBarState) {
+        SearchAppBarState.CLOSED -> {
+            DefaultListAppBar(
+                onSearchClicked = {
+                    sharedViewModel.searchAppBarState.value =
+                        SearchAppBarState.OPENED
+                },
+                onSortClicked = {},
+                onDeleteClicked = {}
+            )
+        }
+        else -> {
+            SearchAppBar(
+                text = searchTextState,
+                onTextChange = { newText ->
+                    sharedViewModel.searchTextState.value = newText
+                },
+                onCloseClicked = {
+                    sharedViewModel.searchAppBarState.value =
+                        SearchAppBarState.CLOSED
+                    sharedViewModel.searchTextState.value = ""
+                },
+                onSearchClicked = {}
+            )
+        }
+    }
 }
 
 
@@ -183,9 +210,9 @@ fun SearchAppBar(
     onCloseClicked: () -> Unit,
     onSearchClicked: (String) -> Unit
 ) {
-//    var trailingIconState by remember {
-//        mutableStateOf(TrailingIconState.READY_TO_DELETE)
-//    }
+    var trailingIconState by remember {
+        mutableStateOf(TrailingIconState.READY_TO_DELETE)
+    }
 
     Surface(
         modifier = Modifier
@@ -218,7 +245,9 @@ fun SearchAppBar(
                 IconButton(
                     modifier = Modifier
                         .alpha(ContentAlpha.disabled),
-                    onClick = {}
+                    onClick = {
+
+                    }
                 ) {
                     Icon(
                         imageVector = Icons.Filled.Search,
@@ -230,20 +259,21 @@ fun SearchAppBar(
             trailingIcon = {
                 IconButton(
                     onClick = {
-//                        when (trailingIconState) {
-//                            TrailingIconState.READY_TO_DELETE -> {
-//                                onTextChange("")
-//                                trailingIconState = TrailingIconState.READY_TO_CLOSE
-//                            }
-//                            TrailingIconState.READY_TO_CLOSE -> {
-//                                if (text.isNotEmpty()) {
-//                                    onTextChange("")
-//                                } else {
-//                                    onCloseClicked()
-//                                    trailingIconState = TrailingIconState.READY_TO_DELETE
-//                                }
-//                            }
-//                        }
+
+                        when (trailingIconState) {
+                            TrailingIconState.READY_TO_DELETE -> {
+                                onTextChange("")
+                                trailingIconState = TrailingIconState.READY_TO_CLOSE
+                            }
+                            TrailingIconState.READY_TO_CLOSE -> {
+                                if (text.isNotEmpty()) {
+                                    onTextChange("")
+                                } else {
+                                    onCloseClicked()
+                                    trailingIconState = TrailingIconState.READY_TO_DELETE
+                                }
+                            }
+                        }
                     }
                 ) {
                     Icon(
