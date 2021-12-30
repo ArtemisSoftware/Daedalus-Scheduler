@@ -7,6 +7,7 @@ import androidx.lifecycle.viewModelScope
 import com.artemissoftware.daedalusscheduler.data.models.Priority
 import com.artemissoftware.daedalusscheduler.data.models.ToDoTask
 import com.artemissoftware.daedalusscheduler.data.repositories.ToDoRepository
+import com.artemissoftware.daedalusscheduler.util.Constants.MAX_TITLE_LENGTH
 import com.artemissoftware.daedalusscheduler.util.RequestState
 import com.artemissoftware.daedalusscheduler.util.SearchAppBarState
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -78,6 +79,12 @@ class SharedViewModel @Inject constructor(
             title.value = ""
             description.value = ""
             priority.value = Priority.LOW
+        }
+    }
+
+    fun updateTitle(newTitle: String) {
+        if (newTitle.length < MAX_TITLE_LENGTH) {
+            title.value = newTitle
         }
     }
 }
