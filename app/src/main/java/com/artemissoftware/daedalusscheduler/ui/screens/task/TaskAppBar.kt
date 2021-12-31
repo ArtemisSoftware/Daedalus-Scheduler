@@ -31,7 +31,6 @@ fun TaskAppBar(
         )
     }
 
-    NewTaskAppBar(navigateToListScreen = navigateToListScreen)
 }
 
 
