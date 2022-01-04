@@ -14,6 +14,7 @@ import androidx.compose.ui.unit.dp
 import com.artemissoftware.daedalusscheduler.data.models.Priority
 import com.artemissoftware.daedalusscheduler.ui.theme.LARGE_PADDING
 import com.artemissoftware.daedalusscheduler.ui.theme.PRIORITY_INDICATOR_SIZE
+import com.artemissoftware.daedalusscheduler.ui.theme.Typography
 
 @Composable
 fun PriorityItem(priority: Priority) {
@@ -27,7 +28,7 @@ fun PriorityItem(priority: Priority) {
             modifier = Modifier
                 .padding(start = LARGE_PADDING),
             text = priority.name,
-            //style = Typography.subtitle1,
+            style = Typography.subtitle2,
             color = MaterialTheme.colors.onSurface
         )
     }
