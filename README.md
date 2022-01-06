@@ -21,8 +21,8 @@ App that searches recipes from the api spoonacular
     Compose Navigation
     ViewModel
     - Dependency Injection with Dagger-Hilt
-    Preferences DataStore
-    Support for Dark and Light Themes
+    - Preferences DataStore
+    - Support for Dark and Light Themes
     Animate UI Components
     Animated Splash Screen
     Swipe to Delete Animation
