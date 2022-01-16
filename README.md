@@ -25,7 +25,7 @@ App that searches recipes from the api spoonacular
     - Support for Dark and Light Themes
     Animate UI Components
     Animated Splash Screen
-    Swipe to Delete Animation
+    - Swipe to Delete Animation
     SharedViewModel
     - Clean Architecture
     - MVVM
