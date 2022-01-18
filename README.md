@@ -23,8 +23,8 @@ App that searches recipes from the api spoonacular
     - Dependency Injection with Dagger-Hilt
     - Preferences DataStore
     - Support for Dark and Light Themes
-    Animate UI Components
-    Animated Splash Screen
+    - Animate UI Components
+    - Animated Splash Screen
     - Swipe to Delete Animation
     SharedViewModel
     - Clean Architecture
