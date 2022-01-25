@@ -13,7 +13,7 @@ App that searches recipes from the api spoonacular
     Introducing with Jetpack Compose
     - Composable Lifecycle
     Initial Composition and Re-composition
-    States in Jetpack Compose
+    - States in Jetpack Compose
     - Side Effects
     Layouts in Jetpack Compose
     Build Custom UI Components
