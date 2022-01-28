@@ -18,7 +18,7 @@ App that searches recipes from the api spoonacular
     Layouts in Jetpack Compose
     Build Custom UI Components
     - ROOM Database
-    Compose Navigation
+    - Compose Navigation
     ViewModel
     - Dependency Injection with Dagger-Hilt
     - Preferences DataStore
