@@ -29,7 +29,7 @@ App that searches recipes from the api spoonacular
     SharedViewModel
     - Clean Architecture
     - MVVM
-    Transition Animations
+    - Transition Animations
 
 ## App preview:
 
