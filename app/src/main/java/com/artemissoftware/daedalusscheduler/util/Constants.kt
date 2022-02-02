@@ -2,6 +2,7 @@ package com.artemissoftware.daedalusscheduler.util
 
 object Constants {
 
+    const val SPLASH_SCREEN = "splash"
     const val DATABASE_TABLE = "todo_table"
     const val DATABASE_NAME = "todo_database"
 

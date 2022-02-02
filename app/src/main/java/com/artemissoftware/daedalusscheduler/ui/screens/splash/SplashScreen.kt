@@ -17,6 +17,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import com.artemissoftware.daedalusscheduler.R
 import com.artemissoftware.daedalusscheduler.ui.theme.DaedalusSchedulerTheme
 import com.artemissoftware.daedalusscheduler.ui.theme.LOGO_HEIGHT
+import com.artemissoftware.daedalusscheduler.ui.theme.SPLASH_SCREEN_DELAY
 import com.artemissoftware.daedalusscheduler.ui.theme.splashScreenBackground
 import kotlinx.coroutines.delay
 
@@ -24,10 +25,10 @@ import kotlinx.coroutines.delay
 fun SplashScreen(
     navigateToListScreen: () -> Unit
 ) {
-//    LaunchedEffect(key1 = true){
-//        delay(SPLASH_SCREEN_DELAY)
-//        navigateToListScreen()
-//    }
+    LaunchedEffect(key1 = true){ //triggered on the first composition
+        delay(SPLASH_SCREEN_DELAY)
+        navigateToListScreen()
+    }
 
     Box(
         modifier = Modifier
