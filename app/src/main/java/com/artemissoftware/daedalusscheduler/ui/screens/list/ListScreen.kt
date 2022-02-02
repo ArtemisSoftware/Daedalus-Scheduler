@@ -1,6 +1,7 @@
 package com.artemissoftware.daedalusscheduler.ui.screens.list
 
 import android.util.Log
+import androidx.compose.animation.ExperimentalAnimationApi
 import androidx.compose.material.*
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Add
@@ -15,6 +16,7 @@ import com.artemissoftware.daedalusscheduler.util.Action
 import com.artemissoftware.daedalusscheduler.util.SearchAppBarState
 import kotlinx.coroutines.launch
 
+@ExperimentalAnimationApi
 @ExperimentalMaterialApi
 @Composable
 fun ListScreen(
