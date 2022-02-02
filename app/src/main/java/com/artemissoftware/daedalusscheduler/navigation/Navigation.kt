@@ -12,6 +12,7 @@ import com.artemissoftware.daedalusscheduler.navigation.destinations.taskComposa
 import com.artemissoftware.daedalusscheduler.ui.viewmodels.SharedViewModel
 import com.artemissoftware.daedalusscheduler.util.Constants.LIST_SCREEN
 import com.artemissoftware.daedalusscheduler.util.Constants.SPLASH_SCREEN
+import com.google.accompanist.navigation.animation.AnimatedNavHost
 
 @ExperimentalAnimationApi
 @ExperimentalMaterialApi
@@ -26,7 +27,7 @@ fun SetupNavigation(
     }
 
 
-    NavHost(
+    AnimatedNavHost(
         navController = navController,
         startDestination = SPLASH_SCREEN
     ){

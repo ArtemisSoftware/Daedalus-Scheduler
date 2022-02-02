@@ -16,6 +16,7 @@ import androidx.navigation.compose.rememberNavController
 import com.artemissoftware.daedalusscheduler.navigation.SetupNavigation
 import com.artemissoftware.daedalusscheduler.ui.theme.DaedalusSchedulerTheme
 import com.artemissoftware.daedalusscheduler.ui.viewmodels.SharedViewModel
+import com.google.accompanist.navigation.animation.rememberAnimatedNavController
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -32,7 +33,7 @@ class MainActivity : ComponentActivity() {
         setContent {
             DaedalusSchedulerTheme {
 
-                navController = rememberNavController()
+                navController = rememberAnimatedNavController()
                 SetupNavigation(
                     navController = navController,
                     sharedViewModel = sharedViewModel
