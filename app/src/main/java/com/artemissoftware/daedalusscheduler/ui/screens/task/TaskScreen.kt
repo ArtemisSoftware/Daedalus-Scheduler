@@ -1,11 +1,15 @@
 package com.artemissoftware.daedalusscheduler.ui.screens.task
 
 import android.content.Context
+import android.util.Log
 import android.widget.Toast
+import androidx.activity.OnBackPressedCallback
+import androidx.activity.OnBackPressedDispatcher
+import androidx.activity.compose.LocalOnBackPressedDispatcherOwner
 import androidx.compose.material.Scaffold
-import androidx.compose.runtime.Composable
-import androidx.compose.runtime.getValue
+import androidx.compose.runtime.*
 import androidx.compose.ui.platform.LocalContext
+import androidx.core.view.KeyEventDispatcher
 import com.artemissoftware.daedalusscheduler.data.models.Priority
 import com.artemissoftware.daedalusscheduler.data.models.ToDoTask
 import com.artemissoftware.daedalusscheduler.ui.viewmodels.SharedViewModel
@@ -23,6 +27,8 @@ fun TaskScreen(
 
     val context = LocalContext.current
 
+    BackHandler(onBackPressed = { navigateToListScreen.invoke(Action.NO_ACTION)} )
+    
     Scaffold(
         topBar = {
             TaskAppBar(
@@ -67,4 +73,30 @@ fun displayToast(context: Context) {
         "Fields Empty.",
         Toast.LENGTH_SHORT
     ).show()
+}
+
+@Composable
+fun BackHandler(
+    backDispatcher: OnBackPressedDispatcher? = LocalOnBackPressedDispatcherOwner.current?.onBackPressedDispatcher,
+    onBackPressed: () -> Unit
+){
+
+    val currentOnBackPressed by rememberUpdatedState(newValue = onBackPressed)
+
+    val backCallBack = remember {
+        object: OnBackPressedCallback(true){
+            override fun handleOnBackPressed() {
+                currentOnBackPressed()
+                Log.d("BACK HANDLER", "Triggered")
+            }
+        }
+    }
+
+    DisposableEffect(key1 = backDispatcher){
+        backDispatcher?.addCallback(backCallBack)
+
+        onDispose {
+            backCallBack.remove()
+        }
+    }
 }
