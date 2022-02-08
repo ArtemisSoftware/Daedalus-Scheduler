@@ -3,8 +3,7 @@ To-Do App using Modern Declarative UI Toolkit called Jetpack Compose
 
 ## The Brief
 
-App that searches recipes from the api spoonacular
-
+App that allows user to create notes
 
 ## Architecture & Libraries
     - States in Jetpack Compose
