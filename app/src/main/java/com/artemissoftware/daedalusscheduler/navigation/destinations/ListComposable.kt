@@ -4,12 +4,16 @@ import androidx.compose.animation.ExperimentalAnimationApi
 import androidx.compose.material.ExperimentalMaterialApi
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.saveable.rememberSaveable
+import androidx.compose.runtime.setValue
 import androidx.navigation.NavGraphBuilder
 import androidx.navigation.NavType
+import androidx.navigation.navArgument
 import com.google.accompanist.navigation.animation.composable
-import androidx.navigation.compose.navArgument
 import com.artemissoftware.daedalusscheduler.ui.screens.list.ListScreen
 import com.artemissoftware.daedalusscheduler.ui.viewmodels.SharedViewModel
+import com.artemissoftware.daedalusscheduler.util.Action
 import com.artemissoftware.daedalusscheduler.util.Constants.LIST_ARGUMENT_KEY
 import com.artemissoftware.daedalusscheduler.util.Constants.LIST_SCREEN
 import com.artemissoftware.daedalusscheduler.util.toAction
@@ -29,8 +33,14 @@ fun NavGraphBuilder.listComposable(
 
         val action = navBackStackEntry.arguments?.getString(LIST_ARGUMENT_KEY).toAction()
 
-        LaunchedEffect(key1 = action) {
-            sharedViewModel.action.value = action
+
+        var myAction by rememberSaveable { mutableStateOf(Action.NO_ACTION) } // the stored value will survive activity or process  recreation
+
+        LaunchedEffect(key1 = myAction) {
+            if(action != myAction){
+                myAction = action
+                sharedViewModel.action.value = action
+            }
         }
 
 

@@ -47,7 +47,7 @@ fun SplashScreen(
         )
     )
 
-    LaunchedEffect(key1 = true){ //triggered on the first composition
+    LaunchedEffect(key1 = true){ //triggered on the first composition ////trigger once. Only triggers again when key changes
         startAnimation = true
         delay(SPLASH_SCREEN_DELAY)
         navigateToListScreen()

@@ -8,9 +8,9 @@ import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.navigation.NavGraphBuilder
 import androidx.navigation.NavType
+import androidx.navigation.navArgument
 
 import com.google.accompanist.navigation.animation.composable
-import androidx.navigation.compose.navArgument
 import com.artemissoftware.daedalusscheduler.ui.screens.task.TaskScreen
 import com.artemissoftware.daedalusscheduler.ui.viewmodels.SharedViewModel
 import com.artemissoftware.daedalusscheduler.util.Action
