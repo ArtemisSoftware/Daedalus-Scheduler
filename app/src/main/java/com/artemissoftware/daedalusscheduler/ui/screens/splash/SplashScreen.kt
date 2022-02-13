@@ -18,6 +18,7 @@ import androidx.compose.ui.draw.alpha
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import com.artemissoftware.daedalusscheduler.R
 import com.artemissoftware.daedalusscheduler.ui.theme.DaedalusSchedulerTheme
@@ -53,6 +54,11 @@ fun SplashScreen(
         navigateToListScreen()
     }
 
+    Splash(offsetState = offsetState, alphaState = alphaState)
+}
+
+@Composable
+fun Splash(offsetState: Dp, alphaState: Float) {
     Box(
         modifier = Modifier
             .fillMaxSize()
@@ -70,6 +76,7 @@ fun SplashScreen(
     }
 }
 
+
 @Composable
 fun getLogo(): Int {
     return if (isSystemInDarkTheme()) {
@@ -82,9 +89,7 @@ fun getLogo(): Int {
 @Composable
 @Preview
 private fun SplashScreenPreview() {
-    SplashScreen(
-        navigateToListScreen = {}
-    )
+    Splash(offsetState = 0.dp, alphaState = 1f)
 }
 
 @Composable
